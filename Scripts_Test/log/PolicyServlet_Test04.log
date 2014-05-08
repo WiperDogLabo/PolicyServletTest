@@ -1,15 +1,15 @@
 >>>>> TEST GET METHOD OF POLICY SERVLET (with job is Store)<<<<<
 Result response data after GET request:
 --------------------------------------------
-HTTP/1.1 200 OK Access-Control-Allow-Origin: * Content-Type: json;charset=ISO-8859-1 Content-Length: 253 Server: Jetty(7.6.8.v20121106)  { "POLICY": { "listpolicy": [ { "condition": "(data.UsedPct < 1)", "level": "1", "message": "Show is ok" } ], "params": { } } }
+HTTP/1.1 200 OK Access-Control-Allow-Origin: * Content-Type: json;charset=ISO-8859-1 Content-Length: 49 Server: Jetty(7.6.8.v20121106)  { "POLICY": { "params": null } }
 --------------------------------------------
 Check OK if content contains [POLICY] string
 [MESSAGE TEST] GET IS OK
->>>>> TEST POST METHOD OF POLICY SERVLET (params is empty)<<<<<
+>>>>> TEST POST METHOD OF POLICY SERVLET (with params is empty)<<<<<
 Result response data after POST request:
 --------------------------------------------
 {"status":"OK","message":"Process policy file successfully !!!"}
 --------------------------------------------
 Check OK if content contains [status] string
 [MESSAGE TEST] POST IS OK
-*NOTE: CHECK IN FOLDER VAR/JOB/POLICY: MySQL.Database_Area.Top30Database.policy WAS CREATED !!!
+*NOTE: CHECK IN FOLDER VAR/JOB/POLICY: MySQL.Database_Area.TestServlet04.policy WAS CREATED !!!

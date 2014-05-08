@@ -1,7 +1,7 @@
 >>>>> TEST GET METHOD OF POLICY SERVLET (with job is Subtyped)<<<<<
 Result response data after GET request:
 --------------------------------------------
-HTTP/1.1 200 OK Access-Control-Allow-Origin: * Content-Type: json;charset=ISO-8859-1 Content-Length: 2596 Server: Jetty(7.6.8.v20121106)  { "POLICY": { "listpolicy": { "D": [ { "condition": "(data.UsedPct >= 90) && (data.UsedPct < 95)", "level": "2", "message": "Warning: Current value of database size used of database \"${data.DatabaseNm}\" is ${data.UsedSize} byte. The maximum size of file is ${data.TotalSize} byte!!!" }, { "condition": "(data.UsedPct > 80) && (data.UsedPct < 90)", "level": "1", "message": "Warning: Current value of database size used of database ${data.DatabaseNm} is ${data.UsedSize} byte. The maximum size of file is ${data.TotalSize} byte!!!" }, { "condition": "(data.UsedPct >= 95)", "level": "3", "message": "Dangerous: Database size used of database \"${data.DatabaseNm}\" is too high. Current value is ${data.UsedSize} byte. The file nearly maximum is ${data.TotalSize} byte!!!" }, { "condition": "(data.DatabaseNm != name)", "level": "3", "message": "test param01" } ], "M": [ { "condition": "(data.UsedPct >= 90) && (data.UsedPct < 95)", "level": "2", "message": "Warning: Current value of database size used of database \"${data.DatabaseNm}\" is ${data.UsedSize} byte. The maximum size of file is ${data.TotalSize} byte!!!" }, { "condition": "(data.DatabaseNm == name)", "level": "1", "message": "Test parameters!!!!!!!!!!!!!!!!" }, { "condition": "(data.UsedPct > 80) && (data.UsedPct < 90)", "level": "1", "message": "Warning: Current value of database size used of database \"${data.DatabaseNm}\" is ${data.UsedSize} byte. The maximum size of file is ${data.TotalSize} byte!!!" }, { "condition": "(data.UsedPct >= 95)", "level": "3", "message": "Dangerous: Database size used of database \"${data.DatabaseNm}\" is too high. Current value is ${data.UsedSize} byte. The file nearly maximum is ${data.TotalSize} byte!!!" } ] }, "params": { "name": "sakila" } } }
+HTTP/1.1 200 OK Access-Control-Allow-Origin: * Content-Type: json;charset=ISO-8859-1 Content-Length: 49 Server: Jetty(7.6.8.v20121106)  { "POLICY": { "params": null } }
 --------------------------------------------
 Check OK if content contains [POLICY] string
 [MESSAGE TEST] GET IS OK
@@ -12,4 +12,4 @@ Result response data after POST request:
 --------------------------------------------
 Check OK if content contains [status] string
 [MESSAGE TEST] POST IS OK
-*NOTE: CHECK IN FOLDER VAR/JOB/POLICY: MySQL.Database_Area.Top30Database.policy WAS CREATED !!!
+*NOTE: CHECK IN FOLDER VAR/JOB/POLICY: MySQL.Database_Area.TestServlet01.policy WAS CREATED !!!
