@@ -1,0 +1,111 @@
+JOB = [name: "MySQL.Database_Area.TestServlet03"]
+FETCHACTION = {
+	def resultData = [
+                [
+                        "DatabaseName" : "wiperTest",
+                        "PhysicalName" : "wiperTest.mdf",
+                        "FileID" : 1,
+                        "ReadsCumCnt" : 22,
+                        "BytesReadCumCnt" : 753664,
+                        "ReadTimeDbl" : 870,
+                        "WritesCumCnt" : 1,
+                        "BytesWriteCumCnt" : 8192,
+                        "WriteTimeDbl" : 25,
+                        "TotalTimeIODbl" : 895,
+                        "BytesOnDiskDbl" : 2359296,
+                        "ReadsCnt" : 22,
+                        "BytesReadsCnt" : 753664,
+                        "WritesCnt" : 1,
+                        "BytesWritesCnt" : 8192,
+                        "ReadsRateVal" : 11,
+                        "BytesReadRateVal" : 376832,
+                        "WritesRateVal" : 0.5,
+                        "BytesWritesRateVal" : 4096,
+                        "AverageIOTimeDbl" : 0,
+                        "AverageIOTimeCumDbl" : 38.9130434783
+                ],
+                [
+                        "DatabaseName" : "wiperTest",
+                        "PhysicalName" : "wiperTest_log.LDF",
+                        "FileID" : 2,
+                        "ReadsCumCnt" : 7,
+                        "BytesReadCumCnt" : 397824,
+                        "ReadTimeDbl" : 377,
+                        "WritesCumCnt" : 0,
+                        "BytesWriteCumCnt" : 0,
+                        "WriteTimeDbl" : 0,
+                        "TotalTimeIODbl" : 377,
+                        "BytesOnDiskDbl" : 589824,
+                        "ReadsCnt" : 7,
+                        "BytesReadsCnt" : 397824,
+                        "WritesCnt" : 0,
+                        "BytesWritesCnt" : 0,
+                        "ReadsRateVal" : 3.5,
+                        "BytesReadRateVal" : 198912,
+                        "WritesRateVal" : 0,
+                        "BytesWritesRateVal" : 0,
+                        "AverageIOTimeDbl" : 0,
+                        "AverageIOTimeCumDbl" : 53.8571428571
+                ],
+                [
+                        "DatabaseName" : "db_test",
+                        "PhysicalName" : "db_test.mdf",
+                        "FileID" : 1,
+                        "ReadsCumCnt" : 15,
+                        "BytesReadCumCnt" : 811008,
+                        "ReadTimeDbl" : 666,
+                        "WritesCumCnt" : 0,
+                        "BytesWriteCumCnt" : 0,
+                        "WriteTimeDbl" : 0,
+                        "TotalTimeIODbl" : 666,
+                        "BytesOnDiskDbl" : 112459776,
+                        "ReadsCnt" : 15,
+                        "BytesReadsCnt" : 811008,
+                        "WritesCnt" : 0,
+                        "BytesWritesCnt" : 0,
+                        "ReadsRateVal" : 7.5,
+                        "BytesReadRateVal" : 405504,
+                        "WritesRateVal" : 0,
+                        "BytesWritesRateVal" : 0,
+                        "AverageIOTimeDbl" : 0,
+                        "AverageIOTimeCumDbl" : 44.4
+                ],
+                [
+                        "DatabaseName" : "db_test",
+                        "PhysicalName" : "db_test_log.LDF",
+                        "FileID" : 2,
+                        "ReadsCumCnt" : 128,
+                        "BytesReadCumCnt" : 882176,
+                        "ReadTimeDbl" : 8556,
+                        "WritesCumCnt" : 1,
+                        "BytesWriteCumCnt" : 6144,
+                        "WriteTimeDbl" : 22,
+                        "TotalTimeIODbl" : 8578,
+                        "BytesOnDiskDbl" : 87949312,
+                        "ReadsCnt" : 128,
+                        "BytesReadsCnt" : 882176,
+                        "WritesCnt" : 1,
+                        "BytesWritesCnt" : 6144,
+                        "ReadsRateVal" : 64,
+                        "BytesReadRateVal" : 441088,
+                        "WritesRateVal" : 0.5,
+                        "BytesWritesRateVal" : 3072,
+                        "AverageIOTimeDbl" : 0,
+                        "AverageIOTimeCumDbl" : 66.496124031
+                ]
+        ]
+	return resultData
+}
+
+KEYEXPR = ['_sequence':['BytesWriteCumCnt','BytesReadCumCnt']]
+KEYEXPR._chart = [
+    [
+        "type": "area",
+        "name": "Draw Area Read Time",
+        "chart_columns": ["ReadsCumCnt"],
+        "hint_columns": ["BytesWriteCumCnt", "WritesCumCnt"]
+    ]
+]
+SENDTYPE = "Store"
+RESOURCEID = "Pf/MsDtFileIoStat"
+DEST = parameters.dest

@@ -15,11 +15,11 @@ contentPost=$(curl -X POST -H "Accept: application/json" -H "Content-type: appli
 	"policyStr":"POLICY = {
 		resultData->\n 
 		def listMess = []\n 
-		def ret = ['jobName' : 'MySQL.Database_Area.TestServlet04', 'istIid' : 'null']\n 
+		def ret = [\"jobName\" : \"MySQL.Database_Area.TestServlet04\", \"istIid\" : \"null\"]\n 
 		resultData.each{data->\n 
 			if((data.ReadsCnt > 100)){\n 
 				listMess.add([level: 1, message: \"\"\"Message test for policyServlet04!!!\"\"\"])\n }\n }\n 
-				ret['message'] = listMess\n return ret\n}"}' 'http://localhost:13111/policyServlet' -v)
+				ret[\"message\"] = listMess\n return ret\n}"}' 'http://localhost:13111/policyServlet' -v)
 echo "Result response data after POST request:"
 echo "--------------------------------------------"
 echo $contentPost

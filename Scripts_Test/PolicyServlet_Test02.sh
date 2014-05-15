@@ -10,12 +10,12 @@ then
 echo "[MESSAGE TEST] GET IS OK"
 echo ">>>>> TEST POST METHOD OF POLICY SERVLET (with params is empty)<<<<<"
 contentPost=$(curl -X POST -H "Accept: application/json" -H "Content-type: application/json" -d '{"action":"WRITE2FILE",
-	"jobName":"MySQL.Database_Area.TestServlet02","instanceName":"master",
+	"jobName":"MySQL.Database_Area.TestServlet02","instanceName":"",
 	"params" : {},
 	"policyStr":"POLICY = {
 		resultData->\n 
 		def listMess = []\n 
-		def ret = ['jobName' : 'MySQL.Database_Area.TestServlet02', 'istIid' : 'master']\n 
+		def ret = [\"jobName\" : \"MySQL.Database_Area.TestServlet02\", \"istIid\" : \"null\"]\n 
 		resultData.each {key,value ->\n
 		  if(key == \"D\") {\n
 		   value.each {data ->\n
@@ -32,7 +32,7 @@ contentPost=$(curl -X POST -H "Accept: application/json" -H "Content-type: appli
 		   }\n
 		  }\n
 		 }\n  
-		 ret['message'] = listMess\n return ret\n}"}' 'http://localhost:13111/policyServlet' -v)
+		 ret[\"message\"] = listMess\n return ret\n}"}' 'http://localhost:13111/policyServlet' -v)
 echo "Result response data after POST request:"
 echo "--------------------------------------------"
 echo $contentPost
@@ -41,7 +41,7 @@ echo "Check OK if content contains [status] string"
 if [[ $contentPost =~ .*'status'.* ]]
 then
 echo "[MESSAGE TEST] POST IS OK"
-echo "*NOTE: CHECK IN FOLDER VAR/JOB/POLICY: MySQL.Database_Area.TestServlet02.master.policy WAS CREATED !!!"
+echo "*NOTE: CHECK IN FOLDER VAR/JOB/POLICY: MySQL.Database_Area.TestServlet02.null.policy WAS CREATED !!!"
 fi
 else
 echo "[MESSAGE TEST] GET IS FAILURE, SO CANNOT TEST POST METHOD"

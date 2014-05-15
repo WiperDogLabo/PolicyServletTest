@@ -1,0 +1,95 @@
+JOB = [name: "MySQL.Database_Area.TestServlet02"]
+FETCHACTION = {
+	def resultData = [
+        "D" : [
+                [
+                        "UsedDataPct" : 4.47761194,
+                        "DataFreeCumSize" : 927956582,
+                        "DatabaseNm" : "test",
+                        "FileNm" : "luvina",
+                        "UsedDataCumSize" : 48,
+                        "UsedCumPct" : 100,
+                        "UsedIndexCumSize" : 1024,
+        				"UsedIndexSize" : 10,
+                        "UsedPct" : 15,
+                        "UsedCumSize" : 927956689
+                ],
+                [
+                        "UsedDataPct" : 88.63232682,
+                        "DataFreeCumSize" : 927956582,
+                        "DatabaseNm" : "wikisharespacechild",
+        				"FileNm" : "insight",
+                        "UsedDataCumSize" : 16351232,
+                        "UsedCumPct" : 100,
+                        "UsedIndexCumSize" : 2097152,
+        				"UsedIndexSize" : 30,
+                        "UsedPct" : 15,
+                        "UsedCumSize" : 929801420
+                ],
+                [
+                        "UsedDataPct" : 89.89210793,
+                        "DataFreeCumSize" : 927956582,
+                        "DatabaseNm" : "xwiki",
+        				"FileNm" : "thanhmx",
+                        "UsedDataCumSize" : 44449792,
+                        "UsedCumPct" : 100,
+                        "UsedIndexCumSize" : 4998144,
+        				"UsedIndexSize" : 25,
+                        "UsedPct" : 15,
+                        "UsedCumSize" : 932901376
+                ]
+        ],
+        "M" : [
+                [
+                        "UsedDataPct" : 4.47761194,
+                        "DataFreeCumSize" : 927956582,
+                        "DatabaseNm" : "test",
+        				"FileNm" : "luvina",
+                        "UsedDataCumSize" : 48,
+                        "UsedCumPct" : 100,
+                        "UsedIndexCumSize" : 1024,
+        				"UsedIndexSize" : 17,
+                        "UsedPct" : 15,
+                        "UsedCumSize" : 927956689
+                ],
+                [
+                        "UsedDataPct" : 88.63232682,
+                        "DataFreeCumSize" : 927956582,
+                        "DatabaseNm" : "wikisharespacechild",
+        				"FileNm" : "insight",
+                        "UsedDataCumSize" : 16351232,
+                        "UsedCumPct" : 100,
+                        "UsedIndexCumSize" : 2097152,
+        				"UsedIndexSize" : 27,
+                        "UsedPct" : 15,
+                        "UsedCumSize" : 929801420
+                ],
+                [
+                        "UsedDataPct" : 89.89210793,
+                        "DataFreeCumSize" : 927956582,
+                        "DatabaseNm" : "xwiki",
+        				"FileNm" : "thanhmx",
+                        "UsedDataCumSize" : 44449792,
+                        "UsedCumPct" : 100,
+                        "UsedIndexCumSize" : 4998144,
+        				"UsedIndexSize" : 40,
+                        "UsedPct" : 15,
+                        "UsedCumSize" : 932901376
+                ]
+        ]
+	]
+	return resultData
+}
+
+KEYEXPR = ['_sequence':['BytesWriteCumCnt','BytesReadCumCnt']]
+KEYEXPR._chart = [
+    [
+        "type": "area",
+        "name": "Draw Area Read Time",
+        "chart_columns": ["ReadsCumCnt"],
+        "hint_columns": ["BytesWriteCumCnt", "WritesCumCnt"]
+    ]
+]
+SENDTYPE = "Store"
+RESOURCEID = "Pf/MsDtFileIoStat"
+DEST = parameters.dest
