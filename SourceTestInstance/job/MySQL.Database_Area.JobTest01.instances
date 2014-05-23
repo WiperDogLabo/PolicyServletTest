@@ -1,0 +1,16 @@
+[
+    "inst1": [
+        "schedule": "1",
+        "params": [
+            "dbSid": "information_schema",
+            "dbHostId": "inst1"
+        ]
+    ],
+    "inst2": [
+        "schedule": "1",
+        "params": [
+            "dbSid": "information_schema",
+            "dbHostId": "inst2"
+        ]
+    ]
+]
