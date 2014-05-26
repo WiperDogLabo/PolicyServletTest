@@ -1,0 +1,67 @@
+JOB = [name: "MySQL.Database_Area.JobTest03"]
+FETCHACTION = {
+	def resultData = [
+                [
+                        "DatabaseName" : "wiperTest",
+                        "PhysicalName" : "wiperTest.mdf",
+                        "FileID" : 1,
+                        "ReadsCumCnt" : 22,
+                        "BytesReadCumCnt" : 753664,
+                        "ReadTimeDbl" : 870,
+                        "WritesCumCnt" : 1,
+                        "BytesWriteCumCnt" : 8192,
+                        "WriteTimeDbl" : 25,
+                        "TotalTimeIODbl" : 895,
+                        "BytesOnDiskDbl" : 2359296,
+                        "ReadsCnt" : 22,
+                        "BytesReadsCnt" : 753664,
+                        "WritesCnt" : 1,
+                        "BytesWritesCnt" : 8192,
+                        "ReadsRateVal" : 11,
+                        "BytesReadRateVal" : 376832,
+                        "WritesRateVal" : 0.5,
+                        "BytesWritesRateVal" : 4096,
+                        "AverageIOTimeDbl" : 0,
+                        "AverageIOTimeCumDbl" : 38.9130434783
+                ],
+                [
+                        "DatabaseName" : "wiperTest",
+                        "PhysicalName" : "wiperTest_log.LDF",
+                        "FileID" : 2,
+                        "ReadsCumCnt" : 7,
+                        "BytesReadCumCnt" : 397824,
+                        "ReadTimeDbl" : 377,
+                        "WritesCumCnt" : 0,
+                        "BytesWriteCumCnt" : 0,
+                        "WriteTimeDbl" : 0,
+                        "TotalTimeIODbl" : 377,
+                        "BytesOnDiskDbl" : 589824,
+                        "ReadsCnt" : 7,
+                        "BytesReadsCnt" : 397824,
+                        "WritesCnt" : 0,
+                        "BytesWritesCnt" : 0,
+                        "ReadsRateVal" : 3.5,
+                        "BytesReadRateVal" : 198912,
+                        "WritesRateVal" : 0,
+                        "BytesWritesRateVal" : 0,
+                        "AverageIOTimeDbl" : 0,
+                        "AverageIOTimeCumDbl" : 53.8571428571
+                ]
+        ]
+	return resultData
+}
+
+KEYEXPR = ['_sequence':['BytesWriteCumCnt','BytesReadCumCnt']]
+KEYEXPR._chart = [
+    [
+        "type": "area",
+        "name": "Draw Area Read Time",
+        "chart_columns": ["ReadsCumCnt"],
+        "hint_columns": ["BytesWriteCumCnt", "WritesCumCnt"]
+    ]
+]
+SENDTYPE = "Store"
+RESOURCEID = "Pf/MsDtFileIoStat"
+DBTYPE = "@MYSQL"
+MONITORINGTYPE = "@DB"
+DEST = parameters.dest

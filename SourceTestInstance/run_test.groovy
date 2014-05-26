@@ -31,6 +31,22 @@ public class TestPolicy{
 			// run command
 			output = runProcClosure(listCmd, dir, true)
 			println output
+			sleep(2000)
+
+			// path to folder wiperdog test
+			def toFolder = pathToWiperdog + "var/job/"
+			// path to folder contains job test
+			def fromFolder
+			def listFileTest = (new File(dirFolderTest + "/job/" + caseTest + "/")).listFiles()
+
+			// remove job exist in var/job
+			listFileTest.each{
+				File fileTest = new File(toFolder + it.getName().toString())
+				if(fileTest.exists()){
+					fileTest.delete()
+				}
+			}
+			sleep(2000)
 
 			// create policy and params file
 			def createPolicyParams = dirFolderTest + "/$caseTest/Create_Policy_Params.sh"
@@ -46,9 +62,7 @@ public class TestPolicy{
 			}
 
 			// copy job, trg, instances file to var/job
-			def toFolder = pathToWiperdog + "var/job/"
-			def fromFolder
-			(new File(dirFolderTest + "/job/")).listFiles().each{
+			listFileTest.each{
 				fromFolder = it.toString()
 				listCmd = new LinkedList<String>();
 				listCmd.add("/bin/cp")
@@ -57,8 +71,10 @@ public class TestPolicy{
 				// get output when run command
 				runProcClosure(listCmd, dir, true)
 			}
+			println "Create job, trg and instances file successfully!!!"
 			println "waiting for wiperdog processing..."
-			sleep(60000)
+			sleep(50000)
+
 			// run testcase
 			def pathToTestcase = dirFolderTest + "/$caseTest/TestCase.js"
 			listCmd = new LinkedList<String>();
@@ -67,31 +83,32 @@ public class TestPolicy{
 			listCmd.add(pathToTestcase)
 			// get output when run command
 			output = runProcClosure(listCmd, dir, true)
-			if(caseTest == "Case1") {
+
+			if(caseTest == "Case1") {// Case1
 				if(output.contains("Insert record general failed") || output.contains("Missing record")){
 					println "====Test failed!!!===="
 				} else {
 					println "====Test successfully!!!===="
 				}
-			} else if(caseTest == "Case2") {
+			} else if(caseTest == "Case2") {// Case2
 				if(output.contains("Inserted only one record") && output.contains("Insert record instance_1 successfully") && output.contains("Insert record instance_2 failed") && output.contains("Insert record general failed")){
 					println "====Test successfully!!!===="
 				} else {
 					println "====Test failed!!!===="
 				}
-			} else if(caseTest == "Case3") {
-				if(output.contains("Insert record general successfully") && output.contains("Insert record instance_1 successfully") && output.contains("Insert record instance_2 failed")){
+			} else if(caseTest == "Case3") {// Case3
+				if(output.contains("Insert record general successfully") && output.contains("Insert record instance_1 successfully") && output.contains("Insert record instance_2 failed") && !output.contains("Missing record")){
 					println "====Test successfully!!!===="
 				} else {
 					println "====Test failed!!!===="
 				}
-			} else {
-				if(output.contains("Insert record general successfully") && output.contains("Insert record instance_1 successfully") && output.contains("Insert record instance_2 successfully")){
+			} else {// Case4
+				if(output.contains("Insert record general successfully") && output.contains("Insert record instance_1 successfully") && output.contains("Insert record instance_2 successfully") && !output.contains("Missing record")){
 					println "====Test successfully!!!===="
 				} else {
 					println "====Test failed!!!===="
 				}
-			} 
+			}
 		}catch(Exception ex){
 			ex.printStackTrace()
 		}
