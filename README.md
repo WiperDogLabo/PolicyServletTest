@@ -20,8 +20,4 @@ Using Curl command to test servlet's functions.
   - Wait and check result in mongodb  
 
  4. Test policy evaluation for instances (/SourceTestInstance)  
-  - Copy default.params and then update dest to mongodb.  
-  - Run startWiperdog.sh  
-  - Run run_test.sh with format  
-	+ run_test.sh -p [/path/to/wiperdog/] -s [String_connect_mongodb] -c [Folder_Test_Case]   
-  - Wait and check result in table policy_message.  
+  - Purpose: Check data will be send to policy_message how when running job with or without job.policy/instance.policy file.  
